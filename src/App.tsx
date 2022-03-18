@@ -18,6 +18,9 @@ const getProducts = async (): Promise<CartItemType[]> =>
   await (await fetch('https://fakestoreapi.com/products/')).json()
 
 function App() {
+  const [isCartOpen, setIsCartOpen] = useState(false)
+  const [cartItems, setCartItems] = useState([] as CartItemType[])
+
   const { data, isLoading, error } = useQuery<CartItemType[]>('products', getProducts) //ReactQuery to fetch data, 'products' is a key
   console.log(data)
   if(isLoading) return <LinearProgress />
