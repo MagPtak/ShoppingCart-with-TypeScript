@@ -3,6 +3,10 @@ import { useQuery } from 'react-query'
 import { Drawer, LinearProgress, Grid, Badge } from '@mui/material';
 import Item from './Item/Item';
 // import { Wrapper } from './App.styles';
+import { Wrapper, StyledButton } from './App.styles';
+import AddShoppingCart from "@mui/icons-material/AddShoppingCart";
+import Cart from './Cart/Cart';
+
 
 export type CartItemType = {
   id: number,
