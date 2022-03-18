@@ -41,7 +41,15 @@ function App() {
   }
 
   return (
-    <>
+    <Wrapper>
+      <Drawer anchor='right' open={isCartOpen} onClose={() => setIsCartOpen(false)}>
+        <Cart cartItems={cartItems} addToCart={handleAddToCart} removeFromCart={handleRemoveFromCart}/>
+      </Drawer>
+      <StyledButton onClick={() => setIsCartOpen(true)}>
+        <Badge badgeContent={getTotalItems(cartItems)} color='error'>
+          <AddShoppingCart />  
+        </Badge>
+      </StyledButton>
       <Grid container spacing={3}>
           {data?.map(item => (
             <Grid item key={item.id} xs={12} sm={4}>
@@ -49,7 +57,7 @@ function App() {
             </Grid>
           ))}
       </Grid>
-    </>
+    </Wrapper>
   );
 }
 
